@@ -20,7 +20,7 @@ locals {
   }
 }
 
-### only needed when uploading files to S3 -- replaced by GitHub frontend pipelien ###
+### only needed when uploading files to S3 -- replaced by GitHub frontend pipeline ###
 # module "template_files" {
 #   source   = "hashicorp/dir/template"
 #   version  = "1.0.2"
