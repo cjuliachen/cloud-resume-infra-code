@@ -1,6 +1,7 @@
 import json
-import boto3
 import os
+import boto3
+
 domain = os.environ['domain_name']
 d_db_name = os.environ['table_name']
 
@@ -33,3 +34,4 @@ def get_visitor_count(event, context):
 
 }
     return response_message
+    

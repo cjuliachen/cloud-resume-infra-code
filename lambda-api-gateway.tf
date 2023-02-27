@@ -3,7 +3,7 @@ resource "aws_lambda_function" "lambda" {
   filename      = data.archive_file.lambda_zip.output_path
   function_name = var.lambda_function_name
   role          = aws_iam_role.role.arn
-  handler       = "${var.lambda_function_name}.${var.lambda_handler_name}"
+  handler       = "${var.lambda_handler_name}.${var.lambda_handler_name}"
   runtime       = var.lambda_runtime
   depends_on    = [aws_cloudwatch_log_group.lambda_log]
 
