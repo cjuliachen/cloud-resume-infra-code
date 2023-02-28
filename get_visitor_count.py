@@ -6,6 +6,7 @@ import boto3
 domain = os.environ['domain_name']
 d_db_name = os.environ['table_name']
 
+
 # pylint: disable=unused-argument
 def get_visitor_count(event, context):
     """
@@ -29,15 +30,13 @@ def get_visitor_count(event, context):
         'statusCode': 200,
         'headers': {
             "Content-Type": "application/json",
-            'Access-Control-Allow-Origin': "https://"+ domain,
+            'Access-Control-Allow-Origin': "https://" + domain,
             'Access-Control-Allow-Methods': "OPTION, POST",
             'Access-Control-Allow-Headers': "Content-Type",
         },
         "body": json.dumps({
             "message": "success",
             "count": response['Attributes']['hits']['N']
-    }),
-}
+        }),
+    }
     return response_message
-
-
