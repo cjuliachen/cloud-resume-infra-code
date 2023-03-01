@@ -36,6 +36,8 @@ jobs:
         with:
           name: SAST Python linting results
           path: python-linter-results.txt
+      - name: Upload Python Linting results - pylint
+        uses: actions/upload-artifact@v3
         with:
-          name: SAST Python linting results
+          name: SAST Python linting results - pylint
           path: pylint-output.json
