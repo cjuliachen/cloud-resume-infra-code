@@ -34,5 +34,5 @@ jobs:
       - name: Upload Python Linting results
         uses: actions/upload-artifact@v3
         with:
-          name: "Artifact-SAST: Python Linting"
+          name: SAST Python linting results
           path: python-linter-results.txt
