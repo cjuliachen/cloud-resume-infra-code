@@ -30,9 +30,12 @@ jobs:
           flake8 $(git ls-files '*.py') --count --max-complexity=10 --max-line-length=79 --statistics >> python-linter-results.txt
       - name: Lint with Pylint
         run: |
-          pylint $(git ls-files '*.py') >> python-linter-results.txt
+          pylint $(git ls-files '*.py') --output-format=json:pylint-output.json,colorized
       - name: Upload Python Linting results
         uses: actions/upload-artifact@v3
         with:
           name: SAST Python linting results
           path: python-linter-results.txt
+        with:
+          name: SAST Python linting results
+          path: pylint-output.json
