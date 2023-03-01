@@ -7,7 +7,7 @@ domain = os.environ['domain_name']
 d_db_name = os.environ['table_name']
 
 
-# pylint: disable=unused-argument
+# pylint: disable=unused-argument #
 def get_visitor_count(event, context):
     """
     connect to DynamoDB using Environment variable "table_name"
