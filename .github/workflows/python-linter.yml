@@ -1,9 +1,9 @@
-name: "SAST: Python Linting"
+name: "SAST: Python Linter"
 on:
   push:
     branches: [ "main", "workflow" ]
-    # paths:
-    #   - '**.py'
+    paths:
+      - '**.py'
   pull_request:
     branches: [ "main" ]
     paths:
@@ -32,4 +32,4 @@ jobs:
       - name: Lint with Pylint
         continue-on-error: true
         run: |
-          pylint $(git ls-files '*.py')
+          pylint $(git ls-files '*.py') --output-format=colorized
