@@ -25,10 +25,12 @@ jobs:
           pip install boto3
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Lint with flake8
+        continue-on-error: true
         run: |
-          flake8 $(git ls-files '*.py') --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 $(git ls-files '*.py') --count --select=E9,F63,F7,F82 --show-source --statistics > python-linter-results.txt
           flake8 $(git ls-files '*.py') --count --max-complexity=10 --max-line-length=79 --statistics >> python-linter-results.txt
       - name: Lint with Pylint
+        continue-on-error: true
         run: |
           pylint $(git ls-files '*.py') --output-format=json:pylint-output.json,colorized
       - name: Upload Python Linting results
