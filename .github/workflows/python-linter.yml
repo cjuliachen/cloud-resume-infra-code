@@ -1,9 +1,9 @@
 name: "SAST: Python Linting"
 on:
   push:
-    branches: [ "main" ]
-    paths:
-      - '**.py'
+    branches: [ "main", "workflow" ]
+    # paths:
+    #   - '**.py'
   pull_request:
     branches: [ "main" ]
     paths:
