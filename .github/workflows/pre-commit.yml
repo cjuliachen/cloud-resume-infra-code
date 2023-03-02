@@ -2,8 +2,10 @@ name: pre-commit
 
 on:
   pull_request:
+    branches: ["workflow"]
   push:
     branches: ["workflow"]
+  workflow_dispatch:
 
 jobs:
   pre-commit:
