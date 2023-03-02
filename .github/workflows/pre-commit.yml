@@ -1,0 +1,17 @@
+name: pre-commit
+
+on:
+  pull_request:
+  push:
+    branches: ["workflow"]
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Python
+        uses: actions/setup-python@v3
+      - name: Run pre-commit
+        uses: pre-commit/action@v3.0.0
