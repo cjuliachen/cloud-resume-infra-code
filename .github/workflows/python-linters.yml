@@ -1,4 +1,4 @@
-name: "SAST: Python Linter"
+name: "SAST: Python Linters"
 on:
   push:
     branches: [ "main", "workflow" ]
@@ -28,7 +28,6 @@ jobs:
         continue-on-error: true
         run: |
           flake8 $(git ls-files '*.py') --count --show-source --statistics
-          flake8 $(git ls-files '*.py') --count --max-complexity=10 --max-line-length=79 --statistics
       - name: Lint with Pylint
         continue-on-error: true
         run: |
