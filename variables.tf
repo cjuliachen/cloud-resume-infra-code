@@ -53,20 +53,20 @@ variable "dynamodb_table_name" {
   type        = string
 }
 
-variable "lambda_script_name" {
-  description = "Lambda script name"
-  type        = string
-}
+# variable "lambda_script_name" {
+#   description = "Lambda script name"
+#   type        = string
+# }
 
 variable "lambda_function_name" {
   description = "Lambda function name, same as the script name without the extention"
   type        = string
 }
 
-variable "lambda_handler_name" {
-  description = "Lambda handler name which was defined in the script"
-  type        = string
-}
+# variable "lambda_handler_name" {
+#   description = "Lambda handler name which was defined in the script"
+#   type        = string
+# }
 
 variable "lambda_runtime" {
   description = "Lambda runtime"

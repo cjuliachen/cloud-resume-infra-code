@@ -3,7 +3,7 @@ resource "aws_lambda_function" "lambda" {
   filename      = data.archive_file.lambda_zip.output_path
   function_name = var.lambda_function_name
   role          = aws_iam_role.role.arn
-  handler       = "${var.lambda_handler_name}.${var.lambda_handler_name}"
+  handler       = "lambda_function.lambda_handler"
   runtime       = var.lambda_runtime
   depends_on    = [aws_cloudwatch_log_group.lambda_log]
 
@@ -33,9 +33,8 @@ resource "aws_iam_role" "role" {
 
 ## assign policy to access Dynamo DB
 resource "aws_iam_role_policy" "lambda_policy" {
-  name = "lambda_dynamodb_policy"
-  role = aws_iam_role.role.id
-  #policy = file("policy.json")
+  name   = "lambda_dynamodb_policy"
+  role   = aws_iam_role.role.id
   policy = data.aws_iam_policy_document.dynamodb_access.json
 
 }
@@ -71,6 +70,7 @@ resource "aws_apigatewayv2_api" "lambda" {
     expose_headers = []
     max_age        = 0
   }
+
 }
 
 
@@ -80,6 +80,11 @@ resource "aws_apigatewayv2_stage" "default" {
   name        = "$default"
   auto_deploy = true
 
+  # Default throttling settings
+  default_route_settings {
+    throttling_burst_limit = 10
+    throttling_rate_limit  = 100
+  }
   access_log_settings {
     destination_arn = aws_cloudwatch_log_group.api_gw.arn
 
