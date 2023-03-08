@@ -52,7 +52,7 @@ data "aws_iam_policy_document" "dynamodb_access" {
 data "archive_file" "lambda_zip" {
   type        = "zip"
   source_file = "${path.module}/lambda/lambda_function.py"
-  output_path = "${path.module}/lambda/${var.lambda_function_name}-deployment-package.zip"
+  output_path = "${path.module}/${var.lambda_function_name}-deployment-package.zip"
 }
 
 

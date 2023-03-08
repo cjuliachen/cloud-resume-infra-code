@@ -2,9 +2,15 @@ name: pre-commit
 
 on:
   pull_request:
-    branches: ["workflow"]
+    branches: ["main"]
+    paths-ignore:
+      - '**/*.md'
+      - '**/*.txt'
   push:
-    branches: ["workflow"]
+    branches: ["main"]
+    paths-ignore:
+      - '**/*.md'
+      - '**/*.txt'
   workflow_dispatch:
 
 jobs:

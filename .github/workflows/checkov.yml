@@ -2,9 +2,15 @@ name: checkov
 
 on:
   push:
-    branches: [ "main", "workflow" ]
+    branches: [ "main"]
+    paths-ignore:
+      - '**/*.md'
+      - '**/*.txt'
   pull_request:
-    branches: [ "main", "workflow" ]
+    branches: [ "main"]
+    paths-ignore:
+      - '**/*.md'
+      - '**/*.txt'
   workflow_dispatch:
 
 jobs:
