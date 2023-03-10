@@ -52,24 +52,5 @@ data "aws_iam_policy_document" "dynamodb_access" {
 data "archive_file" "lambda_zip" {
   type        = "zip"
   source_file = "${path.module}/lambda/lambda_function.py"
-  output_path = "${path.module}/${var.lambda_function_name}-deployment-package.zip"
+  output_path = "${path.module}/lambda-deployment-package.zip"
 }
-
-
-
-### record total hits before rebuilt ###
-# data "aws_dynamodb_table_item" "ddbtable_item" {
-#   table_name = aws_dynamodb_table.ddbtable.name
-#   # expression_attribute_names = {
-#   #   "#S" = "hits"
-#   # }
-#   projection_expression = "hits"
-#   key                   = <<KEY
-# {
-#  "id": {
-#     "S": "visitor"
-#   }
-# }
-# KEY
-#   # depends_on = [aws_dynamodb_table_item.dbtable_item]
-# }

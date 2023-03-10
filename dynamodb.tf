@@ -22,7 +22,7 @@ resource "aws_dynamodb_table_item" "ddbtable_item" {
     "S": "visitor"
   },
   "hits": {
-    "N": "66"
+    "N": "71"
   }
 }
 ITEM

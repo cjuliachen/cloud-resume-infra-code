@@ -9,6 +9,15 @@ terraform {
       version = "2.3.0"
     }
   }
+  #save Terraform state to S3 bucket and use DynomoDB for state locking
+  backend "s3" {
+    bucket = "juliachen-terraform-state-files"
+    key    = "cloud-resume-infra-code/terraform.tfstate"
+    region = "ca-central-1"
+
+    dynamodb_table = "terraform-state-locks"
+    encrypt        = true
+  }
 }
 
 
